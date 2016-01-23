@@ -1,0 +1,61 @@
+<head>
+  <title>class-check-meteor</title>
+</head>
+
+<body>
+
+  {{> serch_form}}
+
+</body>
+
+<template name="serch_form">
+  <form>
+  	<p>
+  		<h2>曜日を選択してください</h2>
+	  	<input type="radio" name="week" value="Sun">日曜日
+	  	<input type="radio" name="week" value="Mon">月曜日
+	  	<input type="radio" name="week" value="Tue">火曜日
+	  	<input type="radio" name="week" value="Wed">水曜日
+	  	<input type="radio" name="week" value="Thu">木曜日
+	  	<input type="radio" name="week" value="Fri">金曜日
+	  	<input type="radio" name="week" value="Sat">土曜日
+  	</p>
+
+  	<p>
+  		<h2>何限目を選択してください</h2>
+	  	<input type="radio" name="period" value="1">1限目
+	  	<input type="radio" name="period" value="2">2限目
+	  	<input type="radio" name="period" value="3">3限目
+	  	<input type="radio" name="period" value="4">4限目
+	  	<input type="radio" name="period" value="5">5限目
+  	</p>
+
+	<p id="select_class">
+  		<p>
+  			<h2>教室を選択してください</h2>
+		  	<select name="floor">
+		  		<option value="">階数を選択</option>
+		  		<option value="2">2階</option>
+		  		<option value="3">3階</option>
+		  		<option value="4">4階</option>
+		  		<option value="5">5階</option>
+		  		<option value="6">6階</option>
+		  		<option value="7">7階</option>
+		  		<option value="8">8階</option>
+		  		<option value="9">9階</option>
+		  	</select>
+		</p>
+		<p>
+			<select name="room">
+				<option value=""></option>
+				<option value=""></option>
+				<option value=""></option>
+				<option value=""></option>
+				<option value=""></option>
+				<option value=""></option>
+				<option value=""></option>
+			</select>
+		</p>
+  	</p>
+  </form>
+</template>
