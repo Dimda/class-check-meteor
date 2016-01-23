@@ -3,47 +3,11 @@
 </head>
 
 <body>
-{{> serch_form}}
+{{> search_form}}
 
 </body>
 
-<template name="s">
-  <form>
-  	<p>
-  		<h2>何限目を選択してください</h2>
-	  	<input type="radio" name="period" value="1">1限目
-	  	<input type="radio" name="period" value="2">2限目
-	  	<input type="radio" name="period" value="3">3限目
-	  	<input type="radio" name="period" value="4">4限目
-	  	<input type="radio" name="period" value="5">5限目
-  	</p>
-
-	<p id="select_class">
-  		<p>
-  			<h2>教室を選択してください</h2>
-		  	<select name="floor">
-		  		{{#each floors}}
-        			<option>{{this}}階</option>
-      			{{/each}}
-		  	</select>
-		</p>
-		<p>
-			<select name="room">
-				<option value=""></option>
-				<option value=""></option>
-				<option value=""></option>
-				<option value=""></option>
-				<option value=""></option>
-				<option value=""></option>
-				<option value=""></option>
-			</select>
-		</p>
-  	</p>
-  </form>
-  {{select_value}}
-</template>
-
-<template name="serch_form">
+<template name="search_form">
   <form class="col-md-8 col-md-offset-2">
   	<h2>曜日を選択してください</h2>
   	<select id="week" name="week" placeholder="曜日">
@@ -79,8 +43,16 @@
 
 	<h2>階数を選択してください</h2>
     <select id="floor" name="floor" placeholder="階">
-      {{#each floors}}
-        <option value= {{this}}>{{this}}階</option>
+      {{#each floor in floors}}
+        <option value= {{floor}} selected="{{isChosenFloor floor}}">{{floor}}階</option>
+      {{/each}}
+    </select>
+    <br/>
+
+    <h2>教室を選択してください</h2>
+    <select id="room" name="room" placeholder="教室">
+      {{#each rooms}}
+        <option value= {{this}}>{{this}}教室</option>
       {{/each}}
     </select>
     <br/>
