@@ -1,0 +1,79 @@
+<head>
+  <title>時間割登録画面</title>
+</head>
+
+<body>
+	<h1>時間割登録画面</h1>
+	{{> registration_form}}
+</body>
+
+<template name="registration_form">
+  <form class="col-md-8 col-md-offset-2" action="#" method="post">
+  	<h2>曜日を選択してください</h2>
+  	<select id="week" name="week" placeholder="曜日">
+	  	{{#each week in weeks}}
+	  		<option value={{week}}>{{week}}</option>
+	  	{{/each}}
+	</select>
+	<br/>
+
+	<h2>限目を選択してください</h2>
+	<select id="period" name="period" placeholder="限目">
+	  	{{#each period in periods}}
+	  		<option value={{period}}>{{period}}限目</option>
+	  	{{/each}}
+	</select>
+	<br/>
+
+	<h2>科目名を選択してください</h2>
+	<select id="lesson_name" name="lesson_name" placeholder="科目名">
+	  	{{#each lesson_name in lesson_names}}
+	  		<option value={{lesson_name}}>{{lesson_name}}</option>
+	  	{{/each}}
+	</select>
+	<br/>
+
+	<h2>教員を選択してください</h2>
+	<select id="teacher" name="teacher" placeholder="教員">
+	  	{{#each teacher in teachers}}
+	  		<option value={{teacher}}>{{teacher}}先生</option>
+	  	{{/each}}
+	</select>
+	<br/>
+
+	<h2>階数を選択してください</h2>
+    <select id="floor" name="floor" placeholder="階">
+      {{#each floor in floors}}
+        <option value= {{floor}} selected="{{isChosenFloor floor}}">{{floor}}階</option>
+      {{/each}}
+    </select>
+    <br/>
+
+    <h2>教室を選択してください</h2>
+    <select id="room" name="room" placeholder="教室">
+      {{#each room in rooms}}
+        <option value= {{room}}>{{room}}教室</option>
+      {{/each}}
+    </select>
+    <br/>
+
+    <h2>受講クラスを選択してください(複数選択可)</h2>
+    {{#each student in students}}
+      <input type="checkbox" name="student" value={{student}}>{{student}}
+    {{/each}}
+    <br/>
+
+    <h2>学科を選択してください(複数選択可)</h2>
+    {{#each department in departments}}
+      <input type="checkbox" name="department" value={{department}}>{{department}}
+    {{/each}}
+    <br/>
+
+    <h2>目的を選択してください(複数選択可)</h2>
+    	<input type="text" id="purpose" name="purpose">
+    <br/>
+
+    <input type="submit" value="送信する">
+    <input type="reset" value="入力内容をリセットする">
+  </form>
+</template>
