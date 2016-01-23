@@ -3,24 +3,12 @@
 </head>
 
 <body>
-
-  {{> serch_form}}
+{{> serch_form}}
 
 </body>
 
-<template name="serch_form">
+<template name="s">
   <form>
-  	<p>
-  		<h2>曜日を選択してください</h2>
-	  	<input type="radio" name="week" value="Sun">日曜日
-	  	<input type="radio" name="week" value="Mon">月曜日
-	  	<input type="radio" name="week" value="Tue">火曜日
-	  	<input type="radio" name="week" value="Wed">水曜日
-	  	<input type="radio" name="week" value="Thu">木曜日
-	  	<input type="radio" name="week" value="Fri">金曜日
-	  	<input type="radio" name="week" value="Sat">土曜日
-  	</p>
-
   	<p>
   		<h2>何限目を選択してください</h2>
 	  	<input type="radio" name="period" value="1">1限目
@@ -34,15 +22,9 @@
   		<p>
   			<h2>教室を選択してください</h2>
 		  	<select name="floor">
-		  		<option value="">階数を選択</option>
-		  		<option value="2">2階</option>
-		  		<option value="3">3階</option>
-		  		<option value="4">4階</option>
-		  		<option value="5">5階</option>
-		  		<option value="6">6階</option>
-		  		<option value="7">7階</option>
-		  		<option value="8">8階</option>
-		  		<option value="9">9階</option>
+		  		{{#each floors}}
+        			<option>{{this}}階</option>
+      			{{/each}}
 		  	</select>
 		</p>
 		<p>
@@ -57,5 +39,50 @@
 			</select>
 		</p>
   	</p>
+  </form>
+  {{select_value}}
+</template>
+
+<template name="serch_form">
+  <form class="col-md-8 col-md-offset-2">
+  	<h2>曜日を選択してください</h2>
+  	<select id="week" name="week" placeholder="曜日">
+	  	{{#each weeks}}
+	  		<option value={{this}}>{{this}}</option>
+	  	{{/each}}
+	</select>
+	<br/>
+
+	<h2>限目を選択してください</h2>
+	<select id="period" name="period" placeholder="限目">
+	  	{{#each periods}}
+	  		<option value={{this}}>{{this}}限目</option>
+	  	{{/each}}
+	</select>
+	<br/>
+
+	<h2>科目名を選択してください</h2>
+	<select id="lesson_name" name="lesson_name" placeholder="科目名">
+	  	{{#each lesson_names}}
+	  		<option value={{this}}>{{this}}</option>
+	  	{{/each}}
+	</select>
+	<br/>
+
+	<h2>教員を選択してください</h2>
+	<select id="teacher" name="teacher" placeholder="教員">
+	  	{{#each teachers}}
+	  		<option value={{this}}>{{this}}先生</option>
+	  	{{/each}}
+	</select>
+	<br/>
+
+	<h2>階数を選択してください</h2>
+    <select id="floor" name="floor" placeholder="階">
+      {{#each floors}}
+        <option value= {{this}}>{{this}}階</option>
+      {{/each}}
+    </select>
+    <br/>
   </form>
 </template>
