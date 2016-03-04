@@ -1,0 +1,16 @@
+<template name="AddSubject">
+  <form class="col-md-8 col-md-offset-2">
+    <input id="lesson-name" type="text" placeholder="科目名" class="">
+    <input id="teacher" type="text" placeholder="教員" class="">
+    <input id="period" type="text" placeholder="限目">
+    <input id="lesson-name" type="text" placeholder="科目名">
+    <select id="floor" name="floor" placeholder="階">
+      {{#each floors}}
+        <option value={{this}}>{{this}}階</option>
+      {{/each}}
+    </select>
+    <select id="classroom" name="classroom" class="hide">
+
+    </select>
+  </form>
+</template>
